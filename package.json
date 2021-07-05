@@ -24,7 +24,9 @@
     "firefox-watch": "npm run firefox-manifest && webpack --watch",
     "firefox-pack": "npm run firefox-build && mkdirp out && zip -rj out/firefox-octolinker-$npm_package_version.zip dist/",
     "firefox-open": "npm run firefox-build && npm run firefox-launch --",
-    "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
+    "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "babel": {
     "plugins": [
@@ -74,7 +76,8 @@
     "semver": "^5.3.0",
     "semver-regex": "^1.0.0",
     "uuid": "^3.0.1",
-    "xregexp": "^3.2.0"
+    "xregexp": "^3.2.0",
+    "snyk": "^1.653.0"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
@@ -113,5 +116,6 @@
   "optionalDependencies": {
     "fsevents": "*"
   },
-  "private": true
+  "private": true,
+  "snyk": true
 }
